@@ -928,6 +928,14 @@ h3 { font-size: 1.25rem; }
 }
 .field textarea { resize: vertical; min-height: 110px; }
 
+.required-mark { color: #c0392b; }
+.field input.field-invalid,
+.field select.field-invalid,
+.field textarea.field-invalid {
+  border-color: #c0392b;
+  background: #FDF1EF;
+}
+
 .form-note { font-size: 0.82rem; color: var(--gray); margin-top: 12px; text-align: center; }
 
 /* Conditional inquiry-form sections */

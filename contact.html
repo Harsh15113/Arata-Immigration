@@ -158,23 +158,23 @@
           <h4 class="visa-section-title">Your Details</h4>
           <div class="form-row">
             <div class="field">
-              <label for="givenName">Given Name</label>
+              <label for="givenName">Given Name <span class="required-mark">*</span></label>
               <input type="text" id="givenName" required>
             </div>
             <div class="field">
-              <label for="lastName">Last Name</label>
+              <label for="lastName">Last Name <span class="required-mark">*</span></label>
               <input type="text" id="lastName" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="field">
-              <label for="dob">Date of Birth</label>
+              <label for="dob">Date of Birth <span class="required-mark">*</span></label>
               <input type="date" id="dob" required>
             </div>
             <div class="field">
-              <label for="gender">Gender</label>
-              <select id="gender">
+              <label for="gender">Gender <span class="required-mark">*</span></label>
+              <select id="gender" required>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
@@ -184,16 +184,16 @@
 
           <div class="form-row">
             <div class="field">
-              <label for="maritalStatus">Marital Status</label>
-              <select id="maritalStatus">
+              <label for="maritalStatus">Marital Status <span class="required-mark">*</span></label>
+              <select id="maritalStatus" required>
                 <option>Single</option>
                 <option>Married</option>
                 <option>Divorced</option>
               </select>
             </div>
             <div class="field">
-              <label for="validPassport">Do You Have a Valid Passport?</label>
-              <select id="validPassport">
+              <label for="validPassport">Do You Have a Valid Passport? <span class="required-mark">*</span></label>
+              <select id="validPassport" required>
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -202,18 +202,18 @@
 
           <div class="form-row">
             <div class="field">
-              <label for="contactNumber">Contact Number</label>
+              <label for="contactNumber">Contact Number <span class="required-mark">*</span></label>
               <input type="tel" id="contactNumber" required>
             </div>
             <div class="field">
-              <label for="emailId">Email ID</label>
+              <label for="emailId">Email ID <span class="required-mark">*</span></label>
               <input type="email" id="emailId" required>
             </div>
           </div>
 
           <div class="field">
-            <label for="address">Address</label>
-            <textarea id="address"></textarea>
+            <label for="address">Address <span class="required-mark">*</span></label>
+            <textarea id="address" required></textarea>
           </div>
 
           <div class="field">
@@ -328,6 +328,7 @@
                 <option>Tourist</option>
                 <option>Family Visit</option>
                 <option>Business</option>
+                <option>Employment</option>
               </select>
             </div>
 
@@ -362,25 +363,6 @@
             <div class="field" style="max-width:calc(50% - 8px)">
               <label for="totalMembers">Total Members Travelling</label>
               <input type="number" min="1" id="totalMembers">
-            </div>
-
-            <div class="field">
-              <label for="visitorEmploymentStatus">Employment Status</label>
-              <select id="visitorEmploymentStatus">
-                <option value="">Select…</option>
-                <option>Employed</option>
-                <option>Unemployed</option>
-              </select>
-            </div>
-            <div class="form-row" id="visitorEmploymentFields" hidden>
-              <div class="field">
-                <label for="visitorJobTitle">Job Title</label>
-                <input type="text" id="visitorJobTitle">
-              </div>
-              <div class="field">
-                <label for="visitorCompanyName">Company Name</label>
-                <input type="text" id="visitorCompanyName">
-              </div>
             </div>
 
             <div class="field">

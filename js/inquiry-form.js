@@ -82,13 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setVisible(businessFields, travelPurpose.value === 'Business');
   });
 
-  // ---- Visitor employment status ----
-  const visitorEmploymentStatus = document.getElementById('visitorEmploymentStatus');
-  const visitorEmploymentFields = document.getElementById('visitorEmploymentFields');
-  visitorEmploymentStatus.addEventListener('change', () => {
-    setVisible(visitorEmploymentFields, visitorEmploymentStatus.value === 'Employed');
-  });
-
   // ---- Repeatable rows ----
   function makeRow(type) {
     const row = document.createElement('div');
@@ -160,11 +153,45 @@ document.addEventListener('DOMContentLoaded', () => {
     return el ? el.value : '';
   }
 
+  // ---- Required-field validation ----
+  const REQUIRED_FIELD_IDS = [
+    'givenName', 'lastName', 'dob', 'gender', 'maritalStatus',
+    'validPassport', 'contactNumber', 'emailId', 'address'
+  ];
+
+  function validateRequiredFields() {
+    let firstInvalid = null;
+    REQUIRED_FIELD_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isEmpty = el.value.trim() === '';
+      el.classList.toggle('field-invalid', isEmpty);
+      if (isEmpty && !firstInvalid) firstInvalid = el;
+    });
+    return firstInvalid;
+  }
+
+  REQUIRED_FIELD_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => el.classList.remove('field-invalid'));
+  });
+
   // ---- Submit ----
   const statusEl = document.getElementById('form-status');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const firstInvalid = validateRequiredFields();
+    if (firstInvalid) {
+      if (statusEl) {
+        statusEl.textContent = 'Please fill in all required fields marked with *.';
+        statusEl.style.color = '#c0392b';
+      }
+      firstInvalid.focus();
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     const btn = form.querySelector('button[type="submit"]');
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
@@ -204,9 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
       eventRegistration: val('eventRegistration'),
       invitationLetter: val('invitationLetter'),
       totalMembers: val('totalMembers'),
-      visitorEmploymentStatus: val('visitorEmploymentStatus'),
-      visitorJobTitle: visitorEmploymentStatus.value === 'Employed' ? val('visitorJobTitle') : '',
-      visitorCompanyName: visitorEmploymentStatus.value === 'Employed' ? val('visitorCompanyName') : '',
       travelHistory5Year: flattenRows(document.getElementById('travelHistoryRows')),
       visitorPastRefusal: val('visitorPastRefusal'),
       visitorRefusalDetails: flattenRows(document.getElementById('visitorRefusalRows')),
@@ -241,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setVisible(visitorRefusalGroup, false);
         setVisible(familyVisitFields, false);
         setVisible(businessFields, false);
-        setVisible(visitorEmploymentFields, false);
         document.getElementById('visitorCountryRows').innerHTML = '';
         document.getElementById('travelHistoryRows').innerHTML = '';
         document.getElementById('studentRefusalRows').innerHTML = '';
