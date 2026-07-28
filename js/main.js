@@ -30,19 +30,61 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => header && header.classList.remove('open'));
   });
 
-  // Contact form: basic client-side check + friendly confirmation.
-  // NOTE: this form uses Netlify Forms (works automatically if the site is
-  // deployed on Netlify). If hosted elsewhere, swap the <form> action for
-  // another form backend (e.g. Formspree) or keep the "Email us directly"
-  // mailto link on the contact page as the primary path.
+  // Contact form: submit to Google Apps Script as JSON.
+  // mode: 'no-cors' + text/plain avoids a CORS preflight, which Apps Script
+  // doesn't handle. Trade-off: the response is opaque, so fetch() resolves
+  // even if the script errors server-side — .catch() only fires on network
+  // failure, not on Apps Script-side failures.
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1Lwl5LXUNqzVfAwfTRfpFBPOfdsDvVZlV_aawHsAbNSeuy9GHVo9gAxnAmrmUF21Z/exec';
   const form = document.getElementById('inquiry-form');
   if (form) {
-    form.addEventListener('submit', () => {
+    const statusEl = document.getElementById('form-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
         btn.disabled = true;
         btn.textContent = 'Sending...';
       }
+      if (statusEl) {
+        statusEl.textContent = '';
+        statusEl.style.color = '';
+      }
+
+      const payload = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      })
+        .then(() => {
+          if (statusEl) {
+            statusEl.textContent = "Thanks — your inquiry has been sent. We'll get back to you soon.";
+            statusEl.style.color = 'var(--orange-dark)';
+          }
+          form.reset();
+        })
+        .catch(() => {
+          if (statusEl) {
+            statusEl.textContent = 'Something went wrong, please try again.';
+            statusEl.style.color = '#c0392b';
+          }
+        })
+        .finally(() => {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = 'Send Inquiry';
+          }
+        });
     });
   }
 
