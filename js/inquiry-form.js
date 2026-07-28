@@ -82,6 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setVisible(businessFields, travelPurpose.value === 'Business');
   });
 
+  // ---- Visitor employment status ----
+  const visitorEmploymentStatus = document.getElementById('visitorEmploymentStatus');
+  const visitorEmploymentFields = document.getElementById('visitorEmploymentFields');
+  visitorEmploymentStatus.addEventListener('change', () => {
+    setVisible(visitorEmploymentFields, visitorEmploymentStatus.value === 'Employed');
+  });
+
   // ---- Repeatable rows ----
   function makeRow(type) {
     const row = document.createElement('div');
@@ -197,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
       eventRegistration: val('eventRegistration'),
       invitationLetter: val('invitationLetter'),
       totalMembers: val('totalMembers'),
+      visitorEmploymentStatus: val('visitorEmploymentStatus'),
+      visitorJobTitle: visitorEmploymentStatus.value === 'Employed' ? val('visitorJobTitle') : '',
+      visitorCompanyName: visitorEmploymentStatus.value === 'Employed' ? val('visitorCompanyName') : '',
       travelHistory5Year: flattenRows(document.getElementById('travelHistoryRows')),
       visitorPastRefusal: val('visitorPastRefusal'),
       visitorRefusalDetails: flattenRows(document.getElementById('visitorRefusalRows')),
@@ -231,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setVisible(visitorRefusalGroup, false);
         setVisible(familyVisitFields, false);
         setVisible(businessFields, false);
+        setVisible(visitorEmploymentFields, false);
         document.getElementById('visitorCountryRows').innerHTML = '';
         document.getElementById('travelHistoryRows').innerHTML = '';
         document.getElementById('studentRefusalRows').innerHTML = '';

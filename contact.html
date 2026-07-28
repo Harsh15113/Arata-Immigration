@@ -365,6 +365,25 @@
             </div>
 
             <div class="field">
+              <label for="visitorEmploymentStatus">Employment Status</label>
+              <select id="visitorEmploymentStatus">
+                <option value="">Select…</option>
+                <option>Employed</option>
+                <option>Unemployed</option>
+              </select>
+            </div>
+            <div class="form-row" id="visitorEmploymentFields" hidden>
+              <div class="field">
+                <label for="visitorJobTitle">Job Title</label>
+                <input type="text" id="visitorJobTitle">
+              </div>
+              <div class="field">
+                <label for="visitorCompanyName">Company Name</label>
+                <input type="text" id="visitorCompanyName">
+              </div>
+            </div>
+
+            <div class="field">
               <label>5-Year Travel History (Year &amp; Country)</label>
               <div class="repeat-rows" id="travelHistoryRows"></div>
               <button type="button" class="btn-add-row" data-add="travelHistory">+ Add another trip</button>
