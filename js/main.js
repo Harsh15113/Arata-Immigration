@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
         service: document.getElementById('service').value,
+        country: document.getElementById('country').value,
         message: document.getElementById('message').value
       };
 
