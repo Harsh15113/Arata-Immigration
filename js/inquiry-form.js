@@ -27,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const sectionStudent = document.getElementById('section-student');
   const sectionVisitor = document.getElementById('section-visitor');
   const sectionInvestment = document.getElementById('section-investment');
+  const sectionOci = document.getElementById('section-oci');
 
   visaType.addEventListener('change', () => {
     const val = visaType.value;
     setVisible(sectionStudent, val === 'Student Visa');
     setVisible(sectionVisitor, val === 'Visitor Visa');
     setVisible(sectionInvestment, val === 'Investment Visa');
+    setVisible(sectionOci, val === 'OCI Visa');
 
     if (val === 'Visitor Visa') {
       ensureFirstRow('visitorCountry', document.getElementById('visitorCountryRows'));
@@ -199,7 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
       visitorPastRefusal: val('visitorPastRefusal'),
       visitorRefusalDetails: flattenRows(document.getElementById('visitorRefusalRows')),
 
-      investmentCountry: val('investmentCountry')
+      investmentCountry: val('investmentCountry'),
+
+      ociPassportCountry: val('ociPassportCountry'),
+      ociApplicationType: val('ociApplicationType')
     };
 
     fetch(APPS_SCRIPT_URL, {
@@ -217,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setVisible(sectionStudent, false);
         setVisible(sectionVisitor, false);
         setVisible(sectionInvestment, false);
+        setVisible(sectionOci, false);
         setVisible(englishTestDetails, false);
         setVisible(englishTestOtherWrap, false);
         setVisible(studentRefusalGroup, false);
