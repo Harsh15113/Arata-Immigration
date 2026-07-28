@@ -204,7 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
       investmentCountry: val('investmentCountry'),
 
       ociPassportCountry: val('ociPassportCountry'),
-      ociApplicationType: val('ociApplicationType')
+      ociApplicationType: val('ociApplicationType'),
+
+      message: val('message')
     };
 
     fetch(APPS_SCRIPT_URL, {
