@@ -151,63 +151,252 @@
 
       <div class="form-card">
         <h3>Send an Inquiry</h3>
-        <p style="color:var(--gray); font-size:0.9rem; margin:8px 0 22px;">Fill in your details and we'll get back to you by phone, WhatsApp or email.</p>
+        <p style="color:var(--gray); font-size:0.9rem; margin:8px 0 22px;">Fill in your details below — the form adjusts based on the visa type you're applying for.</p>
 
-        <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="inquiry-form">
-          <input type="hidden" name="form-name" value="inquiry" />
-          <p style="display:none">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-          </p>
+        <form id="inquiry-form" novalidate>
+
+          <h4 class="visa-section-title">Your Details</h4>
+          <div class="form-row">
+            <div class="field">
+              <label for="givenName">Given Name</label>
+              <input type="text" id="givenName" required>
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" required>
+            </div>
+          </div>
 
           <div class="form-row">
             <div class="field">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required>
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" required>
             </div>
             <div class="field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required>
+              <label for="gender">Gender</label>
+              <select id="gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="maritalStatus">Marital Status</label>
+              <select id="maritalStatus">
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="validPassport">Do You Have a Valid Passport?</label>
+              <select id="validPassport">
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="contactNumber">Contact Number</label>
+              <input type="tel" id="contactNumber" required>
+            </div>
+            <div class="field">
+              <label for="emailId">Email ID</label>
+              <input type="email" id="emailId" required>
             </div>
           </div>
 
           <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
+            <label for="address">Address</label>
+            <textarea id="address"></textarea>
           </div>
 
-          <div class="form-row">
+          <div class="field">
+            <label for="visaType">Visa Type</label>
+            <select id="visaType" required>
+              <option value="">Select visa type…</option>
+              <option value="Student Visa">Student Visa</option>
+              <option value="Visitor Visa">Visitor Visa</option>
+              <option value="Investment Visa">Investment Visa</option>
+            </select>
+          </div>
+
+          <!-- ===== STUDENT VISA ===== -->
+          <div class="visa-section" id="section-student" hidden>
+            <h4 class="visa-section-title">Education Details</h4>
+            <p class="visa-section-hint">Passing year for each qualification you've completed (leave blank if not applicable).</p>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="edu10th">10th — Passing Year</label>
+                <select id="edu10th" class="year-select"><option value="">—</option></select>
+              </div>
+              <div class="field">
+                <label for="edu12th">12th — Passing Year</label>
+                <select id="edu12th" class="year-select"><option value="">—</option></select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="eduDiplomaBachelors">Diploma / Bachelor's — Passing Year</label>
+                <select id="eduDiplomaBachelors" class="year-select"><option value="">—</option></select>
+              </div>
+              <div class="field">
+                <label for="eduPostGrad">Post Graduation — Passing Year</label>
+                <select id="eduPostGrad" class="year-select"><option value="">—</option></select>
+              </div>
+            </div>
+            <div class="field" style="max-width:calc(50% - 8px)">
+              <label for="eduPhd">PhD — Passing Year</label>
+              <select id="eduPhd" class="year-select"><option value="">—</option></select>
+            </div>
+
             <div class="field">
-              <label for="service">Service Interested In</label>
-              <select id="service" name="service">
-                <option>Study Visa</option>
-                <option>Work Visa</option>
-                <option>Investment Visa</option>
-                <option>PR / Citizenship</option>
-                <option>Tourist / Business Visa</option>
-                <option>Flight / Hotel / Tour Booking</option>
-                <option>Not sure yet</option>
+              <label for="studentPreferredCountry">Preferred Country</label>
+              <input type="text" id="studentPreferredCountry" placeholder="e.g. Canada">
+            </div>
+
+            <div class="field">
+              <label for="englishTestCleared">Have You Cleared Any English Proficiency Test?</label>
+              <select id="englishTestCleared">
+                <option>No</option>
+                <option>Yes</option>
               </select>
             </div>
+            <div class="form-row" id="englishTestDetails" hidden>
+              <div class="field">
+                <label for="englishTestType">Which Test?</label>
+                <select id="englishTestType">
+                  <option>IELTS</option>
+                  <option>SELT</option>
+                  <option>PTE</option>
+                  <option>TOEFL</option>
+                  <option>CELPIP</option>
+                  <option>Others</option>
+                </select>
+              </div>
+              <div class="field" id="englishTestOtherWrap" hidden>
+                <label for="englishTestOther">Please Specify</label>
+                <input type="text" id="englishTestOther">
+              </div>
+            </div>
+
             <div class="field">
-              <label for="country">Preferred Country</label>
-              <select id="country" name="country">
-                <option>Canada</option>
+              <label for="studentPastRefusal">Past Visa Refusal, If Any?</label>
+              <select id="studentPastRefusal">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+            <div class="repeat-group" id="studentRefusalGroup" hidden>
+              <div class="repeat-rows" id="studentRefusalRows"></div>
+              <button type="button" class="btn-add-row" data-add="studentRefusal">+ Add another refusal</button>
+            </div>
+          </div>
+
+          <!-- ===== VISITOR VISA ===== -->
+          <div class="visa-section" id="section-visitor" hidden>
+            <h4 class="visa-section-title">Trip Details</h4>
+
+            <div class="field">
+              <label>Destination Countries</label>
+              <div class="repeat-rows" id="visitorCountryRows"></div>
+              <button type="button" class="btn-add-row" data-add="visitorCountry">+ Add another country</button>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="travelDate">Expected Travel Date</label>
+                <input type="date" id="travelDate">
+              </div>
+              <div class="field">
+                <label for="numDays">No. of Days</label>
+                <input type="number" min="1" id="numDays">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="travelPurpose">Travelling Purpose</label>
+              <select id="travelPurpose">
+                <option value="">Select…</option>
+                <option>Tourist</option>
+                <option>Family Visit</option>
+                <option>Business</option>
+              </select>
+            </div>
+
+            <div class="form-row" id="familyVisitFields" hidden>
+              <div class="field">
+                <label for="familyRelationship">Relationship With the Invitee</label>
+                <input type="text" id="familyRelationship">
+              </div>
+              <div class="field">
+                <label for="inviteeVisaStatus">Visa Status of Invitee</label>
+                <input type="text" id="inviteeVisaStatus">
+              </div>
+            </div>
+
+            <div id="businessFields" hidden>
+              <div class="form-row">
+                <div class="field">
+                  <label for="sponsorLetter">Sponsor Letter?</label>
+                  <select id="sponsorLetter"><option>No</option><option>Yes</option></select>
+                </div>
+                <div class="field">
+                  <label for="eventRegistration">Registration of an Event?</label>
+                  <select id="eventRegistration"><option>No</option><option>Yes</option></select>
+                </div>
+              </div>
+              <div class="field" style="max-width:calc(50% - 8px)">
+                <label for="invitationLetter">Invitation Letter?</label>
+                <select id="invitationLetter"><option>No</option><option>Yes</option></select>
+              </div>
+            </div>
+
+            <div class="field" style="max-width:calc(50% - 8px)">
+              <label for="totalMembers">Total Members Travelling</label>
+              <input type="number" min="1" id="totalMembers">
+            </div>
+
+            <div class="field">
+              <label>5-Year Travel History (Year &amp; Country)</label>
+              <div class="repeat-rows" id="travelHistoryRows"></div>
+              <button type="button" class="btn-add-row" data-add="travelHistory">+ Add another trip</button>
+            </div>
+
+            <div class="field">
+              <label for="visitorPastRefusal">Past Visa Refusal, If Any?</label>
+              <select id="visitorPastRefusal">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+            <div class="repeat-group" id="visitorRefusalGroup" hidden>
+              <div class="repeat-rows" id="visitorRefusalRows"></div>
+              <button type="button" class="btn-add-row" data-add="visitorRefusal">+ Add another refusal</button>
+            </div>
+          </div>
+
+          <!-- ===== INVESTMENT VISA ===== -->
+          <div class="visa-section" id="section-investment" hidden>
+            <h4 class="visa-section-title">Investment Destination</h4>
+            <div class="field">
+              <label for="investmentCountry">Preferred Country</label>
+              <select id="investmentCountry">
+                <option value="">Select…</option>
                 <option>USA</option>
-                <option>United Kingdom</option>
-                <option>Germany</option>
-                <option>Europe</option>
-                <option>UAE / Dubai</option>
-                <option>Australia</option>
-                <option>New Zealand</option>
-                <option>Not sure yet</option>
+                <option>Panama</option>
+                <option>Schengen Countries</option>
               </select>
             </div>
           </div>
 
-          <div class="field">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Tell us a bit about your case..." required></textarea>
-          </div>
+          <p class="form-hint">Have specific questions along the way? Contact us directly for more information.</p>
 
           <button type="submit" class="btn btn-primary btn-block">Send Inquiry</button>
           <p id="form-status" class="form-note" role="status" aria-live="polite"></p>
@@ -283,5 +472,6 @@
 </a>
 
 <script src="js/main.js"></script>
+<script src="js/inquiry-form.js"></script>
 </body>
 </html>

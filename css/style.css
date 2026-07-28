@@ -17,6 +17,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Guarantee [hidden] always wins over any class that sets its own display
+   (e.g. .form-row { display: grid }), regardless of specificity ties. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -925,6 +929,77 @@ h3 { font-size: 1.25rem; }
 .field textarea { resize: vertical; min-height: 110px; }
 
 .form-note { font-size: 0.82rem; color: var(--gray); margin-top: 12px; text-align: center; }
+
+/* Conditional inquiry-form sections */
+.visa-section-title {
+  font-size: 1rem;
+  color: var(--orange-dark);
+  margin: 26px 0 4px;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-light);
+}
+.visa-section > .visa-section-title:first-child,
+.visa-section-title:first-child { padding-top: 0; border-top: none; margin-top: 0; }
+.visa-section-hint { font-size: 0.82rem; color: var(--gray); margin: -2px 0 16px; }
+
+.form-hint { font-size: 0.85rem; color: var(--gray); margin: 4px 0 18px; text-align: center; }
+
+.repeat-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.repeat-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.repeat-row input,
+.repeat-row select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: #FBFAF9;
+}
+.repeat-row input:focus,
+.repeat-row select:focus { outline: none; border-color: var(--orange); background: var(--white); }
+
+.remove-row-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-light);
+  background: var(--white);
+  color: var(--gray);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.remove-row-btn:hover { border-color: #c0392b; color: #c0392b; }
+
+.btn-add-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px dashed var(--orange);
+  color: var(--orange-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn-add-row:hover { background: var(--orange); color: var(--white); }
 
 .map-wrap {
   border-radius: var(--radius);
