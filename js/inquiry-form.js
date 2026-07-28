@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
       investmentCountry: val('investmentCountry'),
 
       ociPassportCountry: val('ociPassportCountry'),
+      ociCountryOfBirth: val('ociCountryOfBirth'),
       ociApplicationType: val('ociApplicationType'),
 
       message: val('message')
