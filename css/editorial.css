@@ -379,6 +379,7 @@
   border-bottom: 1px solid var(--gray-light);
 }
 .v2 .gv-facts .label { text-transform: none; letter-spacing: 0.02em; font-size: 0.8rem; line-height: 1.5; }
+.gv-overview .about-photo img { object-position: 30% center; }
 .gv-note {
   margin-top: 28px;
   padding: 22px 24px;

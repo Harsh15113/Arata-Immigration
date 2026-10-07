@@ -246,8 +246,7 @@
 
 /* ---- Investor programme advert (Greece Golden Visa) ---- */
 .h-promo {
-  background: var(--dark);
-  color: var(--white);
+  background: #EFE9E3;
   padding: 120px 0;
   position: relative;
   overflow: hidden;
@@ -275,13 +274,13 @@
   padding: 8px 12px;
   border-radius: 6px;
 }
-.h-promo-body p { opacity: 0.8; max-width: 480px; margin-top: 20px; }
-.h-promo-points { margin-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.15); }
+.h-promo-body p { color: var(--gray); max-width: 480px; margin-top: 20px; }
+.h-promo-points { margin-top: 28px; border-top: 1px solid rgba(43, 36, 32, 0.12); }
 .h-promo-points li {
   display: flex;
   gap: 14px;
   padding: 13px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(43, 36, 32, 0.12);
   font-size: 0.98rem;
 }
 .h-promo-points li::before {
@@ -293,8 +292,8 @@
   padding-top: 3px;
 }
 .h-promo-points { counter-reset: promo; }
-.h-promo .pill:not(.pill-accent) { background: rgba(255, 255, 255, 0.1); color: var(--white); }
-.h-promo .pill:not(.pill-accent):hover { background: var(--white); color: var(--dark); }
+.h-promo .pill:not(.pill-accent) { background: var(--white); }
+.h-promo .pill:not(.pill-accent):hover { background: var(--dark); color: var(--white); }
 
 /* ---- Client stories ---- */
 .h-stories { padding: 40px 0 130px; }
