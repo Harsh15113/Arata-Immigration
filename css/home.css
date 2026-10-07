@@ -275,9 +275,6 @@
   font-weight: 400;
 }
 .h-quote figcaption { color: var(--ink-soft); margin-top: 20px; }
-.h-quote.is-long blockquote { font-size: clamp(1.05rem, 1.6vw, 1.35rem); }
-.h-quote figcaption a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; }
-.h-stories-link { margin-top: 22px; }
 .h-quote-tabs { --tab-count: 3; margin-top: 40px; max-width: 420px; color: var(--dark); }
 
 /* ---- Responsive ---- */

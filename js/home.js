@@ -32,51 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   setupTabs(document.querySelector('.h-hero-tabs'), document.querySelectorAll('.h-hero-slide'), 6);
-
-  // ---- Client quotes: live Google reviews when available (js/google-reviews.js),
-  // otherwise the quotes written into the page. Google requires reviews to be
-  // shown in full, with the reviewer's name. ----
-  var quoteStack = document.querySelector('.h-quote-stack');
-  var quoteTabs = document.querySelector('.h-quote-tabs');
-
-  function renderGoogleReviews(reviews) {
-    quoteStack.textContent = '';
-    quoteTabs.textContent = '';
-    reviews.forEach(function (review, i) {
-      var figure = document.createElement('figure');
-      figure.className = 'h-quote' + (i === 0 ? ' is-active' : '') + (review.text.length > 260 ? ' is-long' : '');
-      var quote = document.createElement('blockquote');
-      quote.textContent = '"' + review.text.trim() + '"';
-      var caption = document.createElement('figcaption');
-      caption.className = 'mono-label';
-      var author = document.createElement(review.authorUrl ? 'a' : 'span');
-      author.textContent = review.author;
-      if (review.authorUrl) {
-        author.href = review.authorUrl;
-        author.target = '_blank';
-        author.rel = 'noopener';
-      }
-      caption.appendChild(author);
-      caption.appendChild(document.createTextNode(' · ' + '★'.repeat(review.rating || 0) + (review.when ? ' · ' + review.when : '') + ' on Google'));
-      figure.appendChild(quote);
-      figure.appendChild(caption);
-      quoteStack.appendChild(figure);
-
-      var tab = document.createElement('button');
-      tab.className = 'h-tab' + (i === 0 ? ' is-active' : '');
-      tab.setAttribute('role', 'tab');
-      tab.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-      tab.innerHTML = '<span class="mono-label">' + String(i + 1).padStart(2, '0') + '.</span><span class="h-tab-bar"><i></i></span>';
-      quoteTabs.appendChild(tab);
-    });
-  }
-
-  if (quoteStack && quoteTabs) {
-    (window.arataGoogleReviews || Promise.resolve(null)).then(function (data) {
-      if (data && data.reviews && data.reviews.length) renderGoogleReviews(data.reviews);
-      setupTabs(quoteTabs, quoteStack.querySelectorAll('.h-quote'), 8);
-    });
-  }
+  setupTabs(document.querySelector('.h-quote-tabs'), document.querySelectorAll('.h-quote'), 7);
 
   var loader = document.querySelector('.intro-loader');
   var showIntro = document.documentElement.classList.contains('show-intro');

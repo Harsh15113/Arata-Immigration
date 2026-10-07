@@ -68,15 +68,6 @@ Every page uses the editorial design in `css/editorial.css` (thin uppercase head
 
 If GSAP can't load, or the visitor has "reduce motion" turned on, all effects are skipped and pages show their normal static layout.
 
-## 7. Live Google reviews
-`netlify/functions/google-reviews.mjs` (served at `/api/google-reviews`) fetches the Google rating, review count and up to 5 latest reviews from the **Places API (New)**; Netlify's CDN caches the result for 6 hours. `js/google-reviews.js` fills the rating numbers on the home and About pages, and the home page's client-stories slider shows the live reviews in full (Google's rules). If the API isn't set up or fails, the pages keep their built-in reviews.
-
-Setup (Netlify → Site configuration → Environment variables):
-- `GOOGLE_PLACES_API_KEY` — a Google Cloud API key restricted to "Places API (New)" (billing must be enabled on the Google Cloud project).
-- `GOOGLE_PLACE_ID` (optional) — the business's Place ID; without it the function looks the business up by name and address.
-
-Redeploy after adding the variables. Test by opening `https://<your-site>/api/google-reviews`.
-
 ## Notes
 - WhatsApp button links to **+91 92747 30321** with a pre-filled generic inquiry message.
 - Business card phone (+91 94261 50321) was not used per your instruction to standardize on the WhatsApp number.
