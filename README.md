@@ -68,6 +68,13 @@ Every page uses the editorial design in `css/editorial.css` (thin uppercase head
 
 If GSAP can't load, or the visitor has "reduce motion" turned on, all effects are skipped and pages show their normal static layout.
 
+## 7. Investor programmes (Greece Golden Visa)
+- `greece-golden-visa.html` — programme page (banner, key facts, overview, advantages, brochure download, CTA). Photos in `assets/programmes/` were taken from the brochure.
+- The home page advertises it in the dark "New programme" section (`.h-promo` in `index.html`), and the Services menu, Services page (Investment Visa card) and footers link to it.
+- Downloadable brochure: `assets/brochures/arata-greece-golden-visa.pdf` (links use the `download` attribute). To update it, overwrite that file with the same name.
+- The page deliberately doesn't state an investment amount — Greece changes its thresholds; confirm current rules before quoting figures.
+- To add another programme, copy `greece-golden-visa.html`, swap the text/photos/PDF, and add it to the Services menu on every page.
+
 ## Notes
 - WhatsApp button links to **+91 92747 30321** with a pre-filled generic inquiry message.
 - Business card phone (+91 94261 50321) was not used per your instruction to standardize on the WhatsApp number.

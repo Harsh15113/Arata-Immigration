@@ -21,7 +21,8 @@
    (e.g. .form-row { display: grid }), regardless of specificity ties. */
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; }
+/* No `scroll-behavior: smooth` here: it breaks GSAP ScrollTrigger's position
+   measurements (animations get stuck after a reload mid-page). */
 
 body {
   font-family: var(--font);

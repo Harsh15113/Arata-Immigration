@@ -76,6 +76,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Programme pages: brochure cover tilts in, copy slides across. ----
+  var brochure = document.querySelector('.gv-brochure');
+  if (brochure) {
+    // Ends on the cover's CSS tilt (-3deg), then hands back to CSS for hover.
+    var cover = brochure.querySelector('.gv-brochure-cover');
+    gsap.fromTo(cover, { rotation: -12, y: 80, opacity: 0 }, {
+      rotation: -3, y: 0, opacity: 1, duration: 1.2, ease: EASE,
+      clearProps: 'transform,opacity,transition',
+      onStart: function () { cover.style.transition = 'none'; },
+      scrollTrigger: { trigger: brochure, start: 'top 80%' }
+    });
+    gsap.from(brochure.querySelectorAll(':scope > div > *'), {
+      x: 60, opacity: 0, duration: 1, stagger: 0.08, ease: EASE,
+      scrollTrigger: { trigger: brochure, start: 'top 80%' }
+    });
+  }
+
   // ---- Closing call to action. ----
   gsap.from('.h-cta .h-wrap > *', {
     y: 50, opacity: 0, duration: 1, stagger: 0.1, ease: EASE,

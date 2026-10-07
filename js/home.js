@@ -141,6 +141,20 @@ document.addEventListener('DOMContentLoaded', function () {
       .fromTo('.h-moment-text > *', { y: 40, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, duration: 0.35 }, 0.6);
   }
 
+  // ---- Greece Golden Visa advert: photo opens up, copy slides in. ----
+  var promo = document.querySelector('.h-promo');
+  if (promo) {
+    gsap.fromTo('.h-promo-media', { clipPath: 'inset(10% 10% 10% 10% round 8px)' }, {
+      clipPath: 'inset(0% 0% 0% 0% round 8px)', ease: 'none',
+      scrollTrigger: { trigger: promo, start: 'top 85%', end: 'top 30%', scrub: true }
+    });
+    gsap.fromTo('.h-promo-media img', { scale: 1.25 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { trigger: promo, start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+    rise('.h-promo-body > *, .h-promo-points li', '.h-promo-body', { x: 60, y: 0, stagger: 0.07 });
+  }
+
   // ---- Destinations: tiles rise in, photos settle from a slight zoom. ----
   ScrollTrigger.batch('.h-dest', {
     start: 'top 90%',
