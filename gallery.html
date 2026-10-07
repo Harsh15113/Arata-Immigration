@@ -7,11 +7,12 @@
 <meta name="description" content="A look inside Arata Immigration's office in Nanpura, Surat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editorial.css">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
 </head>
-<body>
+<body class="v2">
 
 <header class="site-header">
   <div class="header-inner">
@@ -84,11 +85,14 @@
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow" style="color:#fff">Gallery</span>
-    <h1>Inside Arata Immigration</h1>
-    <p>A look at our office in Shankar Plaza, Nanpura, Surat.</p>
+<main>
+<section class="p-hero">
+  <img class="p-hero-img" src="assets/gallery/lounge-area.jpg" alt="">
+  <div class="p-hero-shade" aria-hidden="true"></div>
+  <div class="h-wrap p-hero-content">
+    <span class="mono-label accent">Gallery</span>
+    <h1 class="p-hero-title">Inside Arata Immigration</h1>
+    <p class="p-hero-lead">A look at our office in Shankar Plaza, Nanpura, Surat.</p>
   </div>
 </section>
 
@@ -120,18 +124,19 @@
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <div class="cta-band">
-      <h2>Prefer to visit us in person?</h2>
-      <p>1003-1004, Shankar Plaza, Beside Surat People's Bank, Nanpura, Timaliyawad, Surat - 395001.</p>
-      <div class="cta-actions">
-        <a class="btn btn-outline" href="contact.html">Get Directions &amp; Contact Info</a>
-        <a class="btn btn-primary" style="background:#25D366" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+<section class="h-cta">
+  <div class="h-wrap">
+    <span class="mono-label accent">Visit us</span>
+    <h2 class="h-cta-title">Prefer to visit us in person?</h2>
+    <p>1003-1004, Shankar Plaza, Beside Surat People's Bank, Nanpura, Timaliyawad, Surat - 395001.</p>
+    <div class="h-hero-actions">
+      <a class="pill pill-accent" href="contact.html">Get Directions &amp; Contact Info</a>
+      <a class="pill pill-ghost" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -198,5 +203,10 @@
 </a>
 
 <script src="js/main.js"></script>
+
+<!-- GSAP + ScrollTrigger (cinematic scroll effects) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/scroll-fx.js"></script>
 </body>
 </html>

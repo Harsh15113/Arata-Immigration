@@ -37,9 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Header: see-through over the dark top banner, solid once you scroll past it.
+  const banner = document.querySelector('.h-hero, .p-hero');
+  if (header && banner) {
+    const updateHeader = () => {
+      header.classList.toggle('is-solid', window.scrollY > banner.offsetHeight - header.offsetHeight);
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+  }
+
   // Scroll-reveal: fade + rise elements into view as the user scrolls.
+  // Skipped when GSAP is present — js/scroll-fx.js animates these instead.
+  if (typeof gsap !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const revealTargets = document.querySelectorAll(
-    '.card, .testimonial, .country-chip, .value-item, .info-card, .stat, .gallery-card, .hero-card'
+    '.card, .value-item, .info-card, .stat, .gallery-card, .h-dest, .form-card'
   );
   if (revealTargets.length && 'IntersectionObserver' in window) {
     revealTargets.forEach((el, i) => {

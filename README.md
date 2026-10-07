@@ -16,9 +16,9 @@ The header has two hover mega-menus (tap-to-expand accordion on mobile):
 - **Services** — links to each visa type's section on `services.html` (via anchor IDs like `#study-visa`)
 - **Countries** — flag + name for all 8 countries, linking to their dedicated pages
 
-Flag icons live in `assets/flags/` (one SVG per country, e.g. `ca.svg`, `us.svg`) — used only in the nav dropdown and the countries hub cards.
+Flag icons live in `assets/flags/` (one SVG per country, e.g. `ca.svg`, `us.svg`) — used in the Countries nav dropdown.
 
-Each country page's hero banner uses a real skyline photo instead of a flag: `assets/photos/{ca,us,uk,de,eu,ae,au,nz}.jpg`. To update one, just overwrite the matching file (same name) and it updates automatically — no HTML changes needed.
+Each country page's banner (and its destination tile) uses a real skyline photo: `assets/photos/{ca,us,uk,de,eu,ae,au,nz}.jpg`. To update one, just overwrite the matching file (same name) and it updates automatically — no HTML changes needed.
 
 ## Preview locally
 Just double-click `index.html`, or for a nicer local server:
@@ -54,11 +54,19 @@ Easiest free option — **Netlify**:
 Alternatives: Vercel, GitHub Pages, or any standard web host (just upload all the files).
 
 ## 5. Hero globe (Home page)
-The homepage hero now has an interactive 3D globe as its background (`js/globe.js`), built with **amCharts 5** loaded from their CDN (`cdn.amcharts.com`) — see the `<script>` tags near the bottom of `index.html`. It auto-rotates once every 30 seconds, and pauses while a visitor drags it, scrolls/zooms on it, or uses the "Rotate globe" slider beneath the hero card.
+The homepage hero now has an interactive 3D globe as its background (`js/globe.js`), built with **amCharts 5** loaded from their CDN (`cdn.amcharts.com`) — see the `<script>` tags near the bottom of `index.html`. It's purely decorative: it auto-rotates once every 30 seconds and ignores mouse/touch input, so visitors can scroll straight past it.
 
 **Two things to know:**
 - **Requires internet access** to load the amCharts CDN scripts. If they fail to load (offline, ad-blocker, restricted network), `globe.js` detects this and silently does nothing — the hero still looks fine with just its plain gradient background, no errors.
 - **amCharts 5 free-tier license**: amCharts is free for non-commercial use; commercial sites are expected to either display the small "amCharts" attribution link the library shows by default, or purchase a commercial license to remove it. I have not removed that attribution — if you want it gone, you'll need an amCharts license (see [amcharts.com/online-store](https://www.amcharts.com/online-store/)).
+
+## 6. Design & scroll effects
+Every page uses the editorial design in `css/editorial.css` (thin uppercase headlines, small typewriter-style labels, see-through header over a dark photo banner, numbered cards, big destination photo tiles and a dark closing call-to-action). Animations use **GSAP + ScrollTrigger** (free, loaded from cdnjs).
+
+- **Home page** — extra styles in `css/home.css`, behaviour in `js/home.js`: short intro animation (once per visit), full-screen hero with the rotating globe and auto-cycling numbered tabs, a statement that lights up word by word, a sideways-scrolling services row, a full-screen photo that expands from a tilted frame, destination tiles, rotating client quotes. To change hero slides or testimonials, edit the `.h-hero-slide` / `.h-quote` blocks in `index.html` (keep one tab button per item).
+- **Other pages** — `js/scroll-fx.js`: the banner photo drifts as you scroll, headings slide in from the sides, cards/tiles rise into place and photos open up. Each page's banner photo is the `<img class="p-hero-img">` at the top of the page.
+
+If GSAP can't load, or the visitor has "reduce motion" turned on, all effects are skipped and pages show their normal static layout.
 
 ## Notes
 - WhatsApp button links to **+91 92747 30321** with a pre-filled generic inquiry message.

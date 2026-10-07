@@ -7,11 +7,33 @@
 <meta name="description" content="Arata Immigration, Surat — study, work, investment, tourist & business visas, PR and citizenship for Canada, USA, UK, Germany, Europe, UAE, Australia & New Zealand. Talk to Achal Shah today.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editorial.css">
+<link rel="stylesheet" href="css/home.css">
+<script>
+  // Play the intro animation once per visit (needs JS; skipped for reduced motion).
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      if (!sessionStorage.getItem('arataIntroSeen') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        d.classList.add('show-intro');
+        sessionStorage.setItem('arataIntroSeen', '1');
+      }
+    } catch (e) {}
+  })();
+</script>
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
 </head>
-<body>
+<body class="v2 home-v2">
+
+<div class="intro-loader" aria-hidden="true">
+  <div class="intro-mark">
+    <span class="intro-corner tl"></span><span class="intro-corner tr"></span><span class="intro-corner bl"></span><span class="intro-corner br"></span>
+    <img src="assets/logo-icon.png" alt="">
+  </div>
+</div>
 
 <header class="site-header">
   <div class="header-inner">
@@ -84,187 +106,248 @@
   </div>
 </header>
 
-<section class="hero">
-  <div id="hero-globe" class="hero-globe" aria-hidden="true"></div>
+<main>
+<section class="h-hero">
+  <div class="hero-globe-layer" aria-hidden="true">
+    <div id="hero-globe" class="hero-globe"></div>
+  </div>
+  <div class="h-hero-shade" aria-hidden="true"></div>
 
-  <div class="container">
+  <div class="h-wrap h-hero-content">
+    <h1 class="visually-hidden">Arata Immigration — visa, PR &amp; citizenship consultants in Surat</h1>
+    <span class="mono-label h-hero-rating">★★★★★ 5.0 on Google · Surat, Gujarat</span>
+    <div class="h-hero-slides" aria-live="polite">
+      <div class="h-hero-slide is-active">
+        <span class="mono-label">Study abroad</span>
+        <p class="h-hero-title">Learn where<br>the world learns</p>
+      </div>
+      <div class="h-hero-slide">
+        <span class="mono-label">Work abroad</span>
+        <p class="h-hero-title">Build your<br>career abroad</p>
+      </div>
+      <div class="h-hero-slide">
+        <span class="mono-label">PR &amp; citizenship</span>
+        <p class="h-hero-title">Settle in.<br>Make it home</p>
+      </div>
+      <div class="h-hero-slide">
+        <span class="mono-label">Visas &amp; travel</span>
+        <p class="h-hero-title">See the world,<br>stress-free</p>
+      </div>
+    </div>
+    <div class="h-hero-actions">
+      <a class="pill pill-accent" href="contact.html">Book a free consultation</a>
+      <a class="pill pill-ghost" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="h-wrap h-tabs h-hero-tabs" role="tablist" aria-label="Featured services">
+    <button class="h-tab is-active" role="tab" aria-selected="true"><span class="mono-label">01.</span><span class="h-tab-bar"><i></i></span><span class="mono-label">Study</span></button>
+    <button class="h-tab" role="tab" aria-selected="false"><span class="mono-label">02.</span><span class="h-tab-bar"><i></i></span><span class="mono-label">Work</span></button>
+    <button class="h-tab" role="tab" aria-selected="false"><span class="mono-label">03.</span><span class="h-tab-bar"><i></i></span><span class="mono-label">PR &amp; Citizenship</span></button>
+    <button class="h-tab" role="tab" aria-selected="false"><span class="mono-label">04.</span><span class="h-tab-bar"><i></i></span><span class="mono-label">Travel</span></button>
+  </div>
+</section>
+
+<section class="h-intro">
+  <div class="h-wrap h-intro-grid">
+    <span class="mono-label accent">Arata Immigration</span>
     <div>
-      <div class="hero-rating">★★★★★ 5.0 rating on Google (6 reviews)</div>
-      <h1>Your trusted path to study, work &amp; settle abroad</h1>
-      <p class="lead">Arata Immigration guides you end-to-end through study, work, investment, tourist and business visas, PR and citizenship — for Canada, USA, UK, Germany, Europe, UAE, Australia and New Zealand.</p>
-      <div class="hero-actions">
-        <a class="btn btn-outline-dark" href="contact.html">Book a Free Consultation</a>
-        <a class="btn btn-whatsapp" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <p class="h-statement">Arata means a new beginning. We guide families through study, work, investment and tourist visas, PR and citizenship — with an honest opinion, a transparent process, and the care you'd expect from family.</p>
+      <div class="h-stats">
+        <div><span class="h-stat-num">5.0★</span><span class="mono-label">Google rating</span></div>
+        <div><span class="h-stat-num">8</span><span class="mono-label">Countries</span></div>
+        <div><span class="h-stat-num">6+</span><span class="mono-label">Visa &amp; travel services</span></div>
       </div>
-      <div class="hero-countries">
-        <span>Canada</span><span>USA</span><span>UK</span><span>Germany</span><span>Europe</span><span>UAE / Dubai</span><span>Australia</span><span>New Zealand</span>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <h3>What we handle for you</h3>
-      <ul>
-        <li><span class="check">✓</span> Study, work, investment &amp; tourist visas</li>
-        <li><span class="check">✓</span> PR &amp; citizenship applications</li>
-        <li><span class="check">✓</span> Business visas</li>
-        <li><span class="check">✓</span> Flight &amp; hotel bookings</li>
-        <li><span class="check">✓</span> Tour packages</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="globe-slider-wrap">
-    <span class="globe-slider-label">Rotate globe</span>
-    <input type="range" id="globe-slider" class="globe-slider" min="0" max="360" value="0" step="1" aria-label="Rotate globe horizontally">
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>Complete visa &amp; travel services, under one roof</h2>
-      <p>From your first consultation to landing abroad, Achal Shah and the Arata Immigration team handle the paperwork so you don't have to.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5Z"></path><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"></path></svg>
-        </div>
-        <h3>Study Visa</h3>
-        <p>End-to-end guidance for admissions and student visas to top study destinations.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-        </div>
-        <h3>Work Visa</h3>
-        <p>Employment-based visas and permits to help you work legally abroad.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l4-4 3 3 5-6"></path></svg>
-        </div>
-        <h3>Investment Visa</h3>
-        <p>Guidance on investor and business-investment visa routes for eligible applicants.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a2 2 0 0 1 2-2h9l5 5v15"></path><path d="M9 12h6M9 16h6M13 2v5h5"></path></svg>
-        </div>
-        <h3>PR &amp; Citizenship</h3>
-        <p>Permanent residency and naturalization support for Canada, Australia, NZ and more.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2c3 3 4 7 4 10s-1 7-4 10c-3-3-4-7-4-10s1-7 4-10Z"></path></svg>
-        </div>
-        <h3>Tourist &amp; Business Visa</h3>
-        <p>Fast, reliable visa processing for leisure travel and business trips.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-9-9 20-3-8-8-3Z"></path></svg>
-        </div>
-        <h3>Flights, Hotels &amp; Tours</h3>
-        <p>We also book your flights, hotels and complete tour packages once your visa is ready.</p>
-      </div>
-    </div>
-
-    <div class="text-center mt-40">
-      <a class="btn btn-outline-dark" href="services.html">See all services &amp; countries</a>
+      <a class="pill" href="about.html">About Arata</a>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Destinations</span>
-      <h2>We process visas for these countries</h2>
-    </div>
-    <div class="country-grid">
-      <a class="country-chip" href="canada.html"><span class="flag-icon"><img src="assets/flags/ca.svg" alt=""></span>Canada</a>
-      <a class="country-chip" href="usa.html"><span class="flag-icon"><img src="assets/flags/us.svg" alt=""></span>USA</a>
-      <a class="country-chip" href="uk.html"><span class="flag-icon"><img src="assets/flags/uk.svg" alt=""></span>United Kingdom</a>
-      <a class="country-chip" href="germany.html"><span class="flag-icon"><img src="assets/flags/de.svg" alt=""></span>Germany</a>
-      <a class="country-chip" href="europe.html"><span class="flag-icon"><img src="assets/flags/eu.svg" alt=""></span>Europe</a>
-      <a class="country-chip" href="uae.html"><span class="flag-icon"><img src="assets/flags/ae.svg" alt=""></span>UAE / Dubai</a>
-      <a class="country-chip" href="australia.html"><span class="flag-icon"><img src="assets/flags/au.svg" alt=""></span>Australia</a>
-      <a class="country-chip" href="new-zealand.html"><span class="flag-icon"><img src="assets/flags/nz.svg" alt=""></span>New Zealand</a>
-    </div>
+<section class="h-services">
+  <div class="h-wrap h-head">
+    <span class="mono-label accent">What we do</span>
+    <h2 class="h-title">Every visa,<br>under one roof</h2>
   </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Testimonials</span>
-      <h2>What our clients say</h2>
-    </div>
-
-    <div class="testimonial-track">
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Had an amazing experience with Arata Immigration! My work permit case was quite complicated, but Achal sir handled everything seamlessly and professionally."</p>
-        <div class="author">
-          <div class="avatar">RR</div>
-          <div>
-            <div class="name">Rahi Raolji</div>
-            <div class="meta">Local Guide · Google Review</div>
+  <div class="h-hscroll">
+    <div class="h-track">
+        <a class="h-card" href="services.html#study-visa">
+          <img src="assets/photos/uk.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">01 / Study visa</span>
+            <h3>Learn where the world learns</h3>
+            <p>Admissions and student visas for top universities and colleges.</p>
+            <span class="pill pill-light">Explore</span>
           </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"The staff here is incredibly knowledgeable and supportive. They took time to explain every step and made sure all my documents were in order."</p>
-        <div class="author">
-          <div class="avatar">DP</div>
-          <div>
-            <div class="name">Devam Patel</div>
-            <div class="meta">Local Guide · Google Review</div>
+        </a>
+        <a class="h-card" href="services.html#work-visa">
+          <img src="assets/photos/de.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">02 / Work visa</span>
+            <h3>Build a career abroad</h3>
+            <p>Employment-based visas and permits to work legally overseas.</p>
+            <span class="pill pill-light">Explore</span>
           </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Achalbhai is a very genuine and trustworthy person who always gives the right and honest advice. He successfully helped my son reach Dubai within just one month."</p>
-        <div class="author">
-          <div class="avatar">BP</div>
-          <div>
-            <div class="name">Bhumi Patel</div>
-            <div class="meta">Google Review</div>
+        </a>
+        <a class="h-card" href="services.html#investment-visa">
+          <img src="assets/photos/ae.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">03 / Investment visa</span>
+            <h3>Invest in your future</h3>
+            <p>Investor and business-investment routes for eligible applicants.</p>
+            <span class="pill pill-light">Explore</span>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="google-badge">
-      <span class="stars">★★★★★</span> 5.0 rating from 6 Google reviews
+        </a>
+        <a class="h-card" href="services.html#pr-citizenship">
+          <img src="assets/photos/ca.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">04 / PR &amp; citizenship</span>
+            <h3>Make it home</h3>
+            <p>Permanent residency and naturalisation for Canada, Australia, NZ and more.</p>
+            <span class="pill pill-light">Explore</span>
+          </div>
+        </a>
+        <a class="h-card" href="services.html#tourist-business-visa">
+          <img src="assets/photos/nz.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">05 / Tourist &amp; business</span>
+            <h3>See the world</h3>
+            <p>Fast, reliable visas for holidays, family visits and business trips.</p>
+            <span class="pill pill-light">Explore</span>
+          </div>
+        </a>
+        <a class="h-card" href="services.html#travel-services">
+          <img src="assets/photos/eu.jpg" alt="" loading="lazy">
+          <div class="h-card-body">
+            <span class="mono-label">06 / Flights, hotels &amp; tours</span>
+            <h3>Travel, sorted</h3>
+            <p>Once your visa is ready, we book flights, hotels and complete tours.</p>
+            <span class="pill pill-light">Explore</span>
+          </div>
+        </a>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <div class="cta-band">
-      <h2>Ready to start your visa journey?</h2>
-      <p>Talk to Achal Shah for a free, honest assessment of your case — study, work, PR, citizenship or travel.</p>
-      <div class="cta-actions">
-        <a class="btn btn-outline" href="contact.html">Send an Inquiry</a>
-        <a class="btn btn-primary" style="background:#25D366" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+<section class="h-moment">
+  <div class="h-moment-frame">
+    <img src="assets/photos/au.jpg" alt="" loading="lazy">
+    <span class="h-corner tl" aria-hidden="true"></span><span class="h-corner tr" aria-hidden="true"></span>
+    <span class="h-corner bl" aria-hidden="true"></span><span class="h-corner br" aria-hidden="true"></span>
+    <div class="h-moment-text">
+      <span class="mono-label">Your next chapter</span>
+      <p>One consultation. Eight countries.<br>A new beginning.</p>
+      <a class="pill pill-light" href="countries.html">Explore destinations</a>
+    </div>
+  </div>
+</section>
+
+<section class="h-destinations">
+  <div class="h-wrap">
+    <div class="h-head">
+      <span class="mono-label accent">Destinations</span>
+      <h2 class="h-title">Where will<br>you go?</h2>
+    </div>
+    <div class="h-dest-grid">
+      <a class="h-dest" href="canada.html">
+        <img src="assets/photos/ca.jpg" alt="Canada skyline" loading="lazy">
+        <span class="h-dest-num mono-label">01</span>
+        <span class="h-dest-name">Canada</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="usa.html">
+        <img src="assets/photos/us.jpg" alt="USA skyline" loading="lazy">
+        <span class="h-dest-num mono-label">02</span>
+        <span class="h-dest-name">USA</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="uk.html">
+        <img src="assets/photos/uk.jpg" alt="United Kingdom skyline" loading="lazy">
+        <span class="h-dest-num mono-label">03</span>
+        <span class="h-dest-name">United Kingdom</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="germany.html">
+        <img src="assets/photos/de.jpg" alt="Germany skyline" loading="lazy">
+        <span class="h-dest-num mono-label">04</span>
+        <span class="h-dest-name">Germany</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="europe.html">
+        <img src="assets/photos/eu.jpg" alt="Europe skyline" loading="lazy">
+        <span class="h-dest-num mono-label">05</span>
+        <span class="h-dest-name">Europe</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="uae.html">
+        <img src="assets/photos/ae.jpg" alt="UAE / Dubai skyline" loading="lazy">
+        <span class="h-dest-num mono-label">06</span>
+        <span class="h-dest-name">UAE / Dubai</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="australia.html">
+        <img src="assets/photos/au.jpg" alt="Australia skyline" loading="lazy">
+        <span class="h-dest-num mono-label">07</span>
+        <span class="h-dest-name">Australia</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+      <a class="h-dest" href="new-zealand.html">
+        <img src="assets/photos/nz.jpg" alt="New Zealand skyline" loading="lazy">
+        <span class="h-dest-num mono-label">08</span>
+        <span class="h-dest-name">New Zealand</span>
+        <span class="pill pill-light">Explore</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="h-stories">
+  <div class="h-wrap">
+    <div class="h-stories-photo">
+      <img src="assets/gallery/consultation-room.jpg" alt="Consultation room at the Arata Immigration office in Surat" loading="lazy">
+    </div>
+    <div class="h-stories-grid">
+      <div>
+        <span class="mono-label accent">Client stories</span>
+        <h2 class="h-title">Trusted by<br>families</h2>
+        <p class="h-stories-note">5.0★ from 6 Google reviews</p>
+      </div>
+      <div class="h-quotes">
+        <div class="h-quote-stack" aria-live="polite">
+          <figure class="h-quote is-active">
+            <blockquote>"My work permit case was quite complicated, but Achal sir handled everything seamlessly and professionally."</blockquote>
+            <figcaption class="mono-label">Rahi Raolji · Google review</figcaption>
+          </figure>
+          <figure class="h-quote">
+            <blockquote>"The staff took time to explain every step and made sure all my documents were in order."</blockquote>
+            <figcaption class="mono-label">Devam Patel · Google review</figcaption>
+          </figure>
+          <figure class="h-quote">
+            <blockquote>"Genuine, trustworthy and always honest advice. He helped my son reach Dubai within just one month."</blockquote>
+            <figcaption class="mono-label">Bhumi Patel · Google review</figcaption>
+          </figure>
+        </div>
+        <div class="h-tabs h-quote-tabs" role="tablist" aria-label="Client reviews">
+          <button class="h-tab is-active" role="tab" aria-selected="true"><span class="mono-label">01.</span><span class="h-tab-bar"><i></i></span></button>
+          <button class="h-tab" role="tab" aria-selected="false"><span class="mono-label">02.</span><span class="h-tab-bar"><i></i></span></button>
+          <button class="h-tab" role="tab" aria-selected="false"><span class="mono-label">03.</span><span class="h-tab-bar"><i></i></span></button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="h-cta">
+  <div class="h-wrap">
+    <span class="mono-label accent">Free consultation</span>
+    <h2 class="h-cta-title">Ready to begin<br>your journey?</h2>
+    <p>Talk to Achal Shah for a free, honest assessment of your case — study, work, PR, citizenship or travel.</p>
+    <div class="h-hero-actions">
+      <a class="pill pill-accent" href="contact.html">Send an inquiry</a>
+      <a class="pill pill-ghost" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20%26%20travel%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -338,5 +421,10 @@
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="js/globe.js"></script>
+
+<!-- GSAP + ScrollTrigger (home page scroll animations) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

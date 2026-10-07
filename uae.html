@@ -7,11 +7,12 @@
 <meta name="description" content="Employment, tourist, business and freelance visas plus the UAE Golden Visa and Green Visa long-term residency pathways — Arata Immigration, Surat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/editorial.css">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
 </head>
-<body>
+<body class="v2">
 
 <header class="site-header">
   <div class="header-inner">
@@ -84,10 +85,14 @@
   </div>
 </header>
 
-<section class="page-hero photo-hero" style="background-image: url('assets/photos/ae.jpg');">
-  <div class="container">
-    <h1>UAE Immigration &amp; Visa Services</h1>
-    <p>From employment visas to the 10-year Golden Visa, we help you build a career, business or long-term life in the UAE.</p>
+<main>
+<section class="p-hero">
+  <img class="p-hero-img" src="assets/photos/ae.jpg" alt="">
+  <div class="p-hero-shade" aria-hidden="true"></div>
+  <div class="h-wrap p-hero-content">
+    <span class="mono-label accent">Countries / UAE / Dubai</span>
+    <h1 class="p-hero-title">UAE Immigration &amp; Visa Services</h1>
+    <p class="p-hero-lead">From employment visas to the 10-year Golden Visa, we help you build a career, business or long-term life in the UAE.</p>
   </div>
 </section>
 
@@ -159,18 +164,19 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta-band">
-      <h2>Ready to explore your UAE options?</h2>
-      <p>Get a free assessment of which UAE visa or Golden Visa route fits your profile.</p>
-      <div class="cta-actions">
-        <a class="btn btn-outline" href="contact.html">Send an Inquiry</a>
-        <a class="btn btn-primary" style="background:#25D366" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20UAE%20visa%20%26%20Golden%20Visa%20options." target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+<section class="h-cta">
+  <div class="h-wrap">
+    <span class="mono-label accent">Free consultation</span>
+    <h2 class="h-cta-title">Ready to explore your UAE options?</h2>
+    <p>Get a free assessment of which UAE visa or Golden Visa route fits your profile.</p>
+    <div class="h-hero-actions">
+      <a class="pill pill-accent" href="contact.html">Send an Inquiry</a>
+      <a class="pill pill-ghost" href="https://wa.me/919274730321?text=Hi%20Arata%20Immigration%2C%20I%27d%20like%20to%20know%20more%20about%20UAE%20visa%20%26%20Golden%20Visa%20options." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -238,5 +244,10 @@
 </a>
 
 <script src="js/main.js"></script>
+
+<!-- GSAP + ScrollTrigger (cinematic scroll effects) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/scroll-fx.js"></script>
 </body>
 </html>
