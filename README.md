@@ -28,7 +28,7 @@ npx serve .
 ```
 
 ## 1. Logo — done
-`assets/logo-icon.png` is the real Arata Immigration icon, cropped from the business card. It's wired into the header, footer and browser-tab favicon on every page. If you get a higher-resolution or vector version of the logo later, just overwrite `assets/logo-icon.png` with the new file (same filename) and every page updates automatically.
+`assets/logo-icon.png` is the real Arata Immigration icon, cropped from the business card to just the orange square (no white background or box around it). It's wired into the header, footer and browser-tab favicon on every page. If you get a higher-resolution or vector version of the logo later, just overwrite `assets/logo-icon.png` with the new file (same filename) and every page updates automatically.
 
 ## 2. Gallery photos — done
 The Gallery page displays photos as plain image cards (no captions), zooming slightly on hover. `assets/gallery/` has 4 real office photos (consultation room, meeting room from two angles, lounge/workstation area). To add more later, drop the image into `assets/gallery/` and copy one of the `.gallery-card` blocks in `gallery.html`, updating the `src` and `alt`.
